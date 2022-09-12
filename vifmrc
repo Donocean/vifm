@@ -79,7 +79,6 @@ set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 " ------------------------------------------------------------------------------
 
 " :mark mark /full/directory/path [filename]
-
 mark b ~/bin/
 mark h ~/
 
@@ -374,6 +373,16 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 
 " Start shell in current directory
 nnoremap s :shell<cr>
+
+" go home directory
+nnoremap gh :cd $HOME<cr>
+
+" go / directory
+nnoremap g/ :cd /<cr>
+
+" exit vifm
+nnoremap qq ZZ
+nnoremap <c-w>q ZZ
 
 " Display sorting dialog
 nnoremap S :sort<cr>
