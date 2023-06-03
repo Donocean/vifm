@@ -203,6 +203,8 @@ filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
         \ gpicview %c,
         \ {View in shotwell}
         \ shotwell,
+        \ {View in feh}
+        \ feh %f,
 fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
          \ identify %f
 
@@ -248,12 +250,12 @@ fileviewer {*.torrent},<application/x-bittorrent> dumptorrent -v %c
 " FuseZipMount
 filetype {*.zip,*.jar,*.war,*.ear,*.oxt,*.apkg},
         \<application/zip,application/java-archive>
-       \ {Mount with fuse-zip}
-       \ FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR,
-       \ {View contents}
-       \ zip -sf %c | less,
-       \ {Extract here}
-       \ tar -xf %c,
+        \ {Mount with fuse-zip}
+        \ FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR,
+        \ {View contents}
+        \ zip -sf %c | less,
+        \ {Extract here}
+        \ tar -xf %c,
 fileviewer *.zip,*.jar,*.war,*.ear,*.oxt zip -sf %c
 
 " ArchiveMount
@@ -296,15 +298,16 @@ fileviewer {*.7z},<application/x-7z-compressed> 7z l %c
 
 " Office files
 filextype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
-         \<application/vnd.openxmlformats-officedocument.*,
-          \application/msword,
-          \application/vnd.ms-excel>
-        \ libreoffice %f &
-fileviewer {*.doc},<application/msword> catdoc %c
+          \ wps %f &,
+          \ <application/vnd.openxmlformats-officedocument.*,
+          \ application/msword,
+          \ application/vnd.ms-excel>
+          \ libreoffice %f &
+fileviewer {*.doc}, <application/msword> catdoc %c
 fileviewer {*.docx},
-          \<application/
-           \vnd.openxmlformats-officedocument.wordprocessingml.document>
-         \ docx2txt.pl %f -
+           \ <application/
+           \ vnd.openxmlformats-officedocument.wordprocessingml.document>
+           \ docx2txt.pl %f -
 
 " TuDu files
 filetype *.tudu tudu -f %c
