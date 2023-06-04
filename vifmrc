@@ -297,7 +297,7 @@ filetype {*.7z},<application/x-7z-compressed>
 fileviewer {*.7z},<application/x-7z-compressed> 7z l %c
 
 " Office files
-filextype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
+filextype {*.odt,*.doc,*.docx,*.odp},
           \ wps %f &,
           \ <application/vnd.openxmlformats-officedocument.*,
           \ application/msword,
@@ -308,6 +308,8 @@ fileviewer {*.docx},
            \ <application/
            \ vnd.openxmlformats-officedocument.wordprocessingml.document>
            \ docx2txt.pl %f -
+filetype {*.xls,*.xlsx}, et %f &
+filetype {*.pptx,*.ppt}, wpp %f &
 
 " TuDu files
 filetype *.tudu tudu -f %c
