@@ -424,6 +424,15 @@ nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
 nnoremap A cw
 
+" Windows navigation
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+
+" toggle visibility of dot files
+map H za
+
 " Open editor to edit vifmrc and apply settings after returning to vifm
 nnoremap ,c :write | edit $MYVIFMRC | restart full<cr>
 
