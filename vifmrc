@@ -375,9 +375,9 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 "
 " filter! {*.lo,*.o,*.d,*.class,*.pyc,*.pyo,.*~}
 
-" ------------------------------------------------------------------------------
-
-" Sample mappings
+" -------------------------Sample mappings-----------------------------------------------
+" rename
+map r cw
 
 " Start shell in current directory
 nnoremap s :shell<cr>
@@ -389,8 +389,8 @@ nnoremap gh :cd $HOME<cr>
 nnoremap g/ :cd /<cr>
 
 " exit vifm
-nnoremap qq ZZ
-nnoremap <c-w>q ZZ
+nnoremap qq :quit<cr>
+nnoremap <c-w><c-q> :quit<cr>
 
 " Display sorting dialog
 nnoremap S :sort<cr>
@@ -402,7 +402,7 @@ vnoremap w :view<cr>gv
 " Interaction with system clipboard
 if has('win')
     " Yank current directory path to Windows clipboard with forward slashes
-    nnoremap yp :!echo %"d:gs!\!/! %i | clip<cr>
+    nnoremap yd :!echo %"d:gs!\!/! %i | clip<cr>
     " Yank path to current file to Windows clipboard with forward slashes
     nnoremap yf :!echo %"c:gs!\!/! %i | clip<cr>
 elseif executable('xclip')
@@ -418,11 +418,6 @@ elseif executable('xsel')
     nnoremap yf :!echo -n %c:p | xsel --input --primary %i &&
                 \ echo -n %c:p | xsel --clipboard --input %i<cr>
 endif
-
-" Mappings for faster renaming
-nnoremap I cw<c-a>
-nnoremap cc cw<c-u>
-nnoremap A cw
 
 " Windows navigation
 map <c-l> <c-w>l
